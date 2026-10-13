@@ -10,18 +10,19 @@
 
 | Area | Dato observado y evidencia | Especificacion y fuente | Limite o diferencia | Justificacion |
 |---|---|---|---|---|
-| CPU |Nombre: Intel(R) Pentium(R) CPU G4560 @ 3.50GHz 2 nucleos 4 hilos| Se consulta el nombre del procesador, el numero de cores y el numero total de hilos del procesador |Cumple con la arquitectura y el conjunto de instrucciones de virtualizacion necesario. | El procesador soporta virtualizacion por hardware de manera nativa, se ha comprobado via consola con el comando [ lscpu ] |
+| CPU |Nombre: Intel(R) Pentium(R) CPU G4560 @ 3.50GHz 2 núcleos 4 hilos| Se consulta el nombre del procesador, el numero de cores y el numero total de hilos del procesador |Cumple con la arquitectura y el conjunto de instrucciones de virtualizacion necesario. | El procesador soporta virtualizacion por hardware de manera nativa, se ha comprobado via consola con el comando [ lscpu ] |
 | RAM | | | | |
 | Almacenamiento | | | | |
 | Red | Interfaz de red Ethernet disponible en el equipo de aula [gestionada por el hipervisor o por host en este caso] | Al menos una interfaz de red (NIC) física para la conectividad de red y gestión del nodo | Cuenta con conectividad de red operativa unicamente en el aula, con restricciones de firewall | Permite configurar el puente de red (vmbr0) para que el nodo Proxmox y sus máquinas virtuales tengan acceso a la red local y conectividad exterior. |
-| Plataforma | | | | |
+| Plataforma | Sistema operativo ejecutándose de forma nativa ( bare-metal ) confirmado con [systemd-detect-virt] devolviendo [none].| Hipervisor Proxmox VE de Tipo 1 diseñado directamente sobre el hardware físico del equipo [Documentación oficial] | Sin capas de virtualización previas; entorno nativo idóneo para la instalación del hipervisor. En caso de virtualizar proxmox puede generar problemas de permisos o problemas con el hipervisor al virtualizar| Operar directamente sobre el hardware (bare-metal) garantiza el acceso directo a las extensiones de virtualización del procesador sin penalización de rendimiento anidado |
 
 ## 1. Puedo instalar Proxmox en este equipo?
 
 Contrastar el inventario con requisitos oficiales de la version prevista.
 Responder por separado y justificar con datos y fuentes:
 
-- Puedo instalar y arrancar Proxmox: PENDIENTE.
+- Puedo instalar y arrancar Proxmox: Sí, con condiciones. Los datos de la CPU obtenidos mediante lscpu confirman que el equipo cuenta con una arquitectura de 64 bits (x86_64) y el conjunto de instrucciones de virtualización por hardware Intel VT-x. La comprobación con systemd-detect-virt devolviendo none demuestra que el sistema operativo actual se ejecuta de forma nativa sobre el disco duro TOSHIBA de 465,8 GB, sin capas de virtualización previas que penalicen el rendimiento. Fuente: Requisitos oficiales de instalación de Proxmox VE
+
 - Puedo ejecutar el servidor ASO y el cliente del proyecto: PENDIENTE.
 - Condiciones o comprobaciones pendientes: PENDIENTE.
 
