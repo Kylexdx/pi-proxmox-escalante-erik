@@ -88,7 +88,9 @@ fabricante o plataforma virtual. Relacionarlas con las tres respuestas.
 
 | Fuente y URL | Version/modelo y fecha de consulta | Afirmacion respaldada | Aplicacion al nodo |
 |---|---|---|---|
-| | | | |
+| (https://pve.proxmox.com/wiki/System_Requirements) | Proxmox VE 9.2-1 Consultado: Octubre 2026 | Exige obligatoriamente un procesador de 64 bits (x86_64) con soporte de virtualización por hardware (Intel VT-x o AMD-V) y un mínimo de 2 GB de RAM para el sistema base. | Valida que el equipo de aula cumple con la arquitectura exigida y soporta el arranque nativo del hipervisor KVM. |
+| Comandos PC Clase Caracteristicas CPU |Ubuntu 24.04 LTS Consultado: Octubre 2026| Se necesita conocer las caracteristicas especificas de nuestro equipo para poder asignar una cantidad de hilos/vCPU correcta a cada servicio | Se uso el comando [lscpu](../pi-proxmox-erik-escalante/evidencias/lscpu.jpeg) |
+| Comandos PC Clase Caracteristicas RAM |Ubuntu 24.04 LTS Consultado: Octubre 2026 | | |
 
 ## Dictamen de viabilidad
 
