@@ -2,8 +2,8 @@
 
 | Campo | Contenido |
 |---|---|
-| Identificador del alumno | PENDIENTE |
-| URL GitHub | PENDIENTE |
+| Identificador del alumno | Erik Escalante Domenech |
+| URL GitHub | https://github.com/Kylexdx/pi-proxmox-escalante-erik/ |
 | Acceso docente comprobado | PENDIENTE |
 | Modalidad fisica o virtualizada | PENDIENTE |
 | Recursos conocidos | PENDIENTE |
