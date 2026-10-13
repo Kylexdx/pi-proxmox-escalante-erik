@@ -38,14 +38,27 @@ No se utiliza el Proxmox del centro como recurso.
 
 | Elemento | CPU/vCPU | RAM | Disco | Justificacion |
 |---|---|---|---|---|
-| Proxmox | | | | |
-| srv-aso | | | | |
-| cli-linux | | | | |
-| Plantilla, ISOs y copias | No aplica | No aplica | | |
-| Margen de operacion | | | | |
+| Proxmox | Host sin vCPU propias; se reserva 1 hilo de 4| 2 GiB|30 GiB | 2 GB es el mínimo oficial para el SO y sus servicios. Disco: raíz y swap con ext4/LVM-thin.|
+| srv-aso |1 vCPU | 2 GiB| 30 GiB| Supuesto: servidor sin entorno gráfico. Es la VM con más carga, por eso lleva más CPU. |
+| cli-linux |2 vCPU |2 GiB |30 GiB | Supuesto: cliente Linux ligero. Con 1 vCPU basta para lanzar pruebas contra el servidor.|
+| Plantilla, ISOs y copias | No aplica | No aplica | 30 GiB|Estimación: ISOs ≈ 6 GiB, plantilla ≈ 10 GiB, copias ≈ 24 GiB. |
+| Margen de operacion |Sin hilos extra |2 Gib | 88,4 GiB| RAM: caché, memoria compartida con la gráfica integrada y picos. Disco: crecimiento de los discos thin.|
 
 Mostrar calculos de RAM y disco, reparto de vCPU, unidades y supuestos.
+
+vCPU: el i3-1115G4 tiene 2 núcleos físicos y 4 hilos lógicos (SMT). Asigno 2 + 1 = 3 vCPU, así que queda 1 hilo libre (25 %) para Proxmox. Dos hilos del mismo núcleo no rinden como dos núcleos completos, por lo que la capacidad real es inferior a 4 núcleos.
+RAM: 2 + 2 + 2 = 6 GiB asignados de 8 GiB nominales (75 %). Quedan 2 GiB de margen (25 %). Con todo cargado a la vez cuento toda la memoria asignada como usada, sin ballooning.
+Disco: 256 GB × 10⁹ / 2³⁰ = 238,4 GiB reales. Asignado: 30 + 40 + 40 + 40 = 150 GiB. Margen: 238,4 − 150 = 88,4 GiB (37 %).
+Supuestos: las necesidades de srv-aso y cli-linux son estimaciones y se ajustarán a los servicios que pida la práctica.
+
 Explicar las cargas que pueden funcionar simultaneamente.
+Cargas simultáneas: Proxmox, srv-aso y cli-linux caben a la vez en RAM y disco, y en CPU quedan con 3 vCPU sobre 4 hilos. Es el peor caso asumido: todo cargado a la vez, con la CPU al límite pero sin saturar al host. Una cuarta VM no cabe sin romper el margen de RAM, y subir las vCPU a 2 + 2 dejaría al host sin hilos propios.
+
+Medido o estimado
+
+Medido, pendiente de comandos: hilos (lscpu), RAM visible (free -h), tamaño real del disco (lsblk) y red (ip -br link).
+Especificación de la ficha del fabricante: modelo de CPU, 8 GB soldados y 256 GB NVMe.
+Estimado: el reparto de arriba y los tamaños de ISOs, plantilla y copias.
 
 | Limitacion | Evidencia o estimacion | Consecuencia | Medida y limite que permanece |
 |---|---|---|---|
