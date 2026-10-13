@@ -10,10 +10,7 @@
 
 | Area | Dato observado y evidencia | Especificacion y fuente | Limite o diferencia | Justificacion |
 |---|---|---|---|---|
-| CPU |Nombre: Intel(R) Pentium(R) CPU G4560 @ 3.50GHz
-Tab2
-tab3| dddd
-tab4| | |
+| CPU |Nombre: Intel(R) Pentium(R) CPU G4560 @ 3.50GHz 2 nucleos 4 hilos| Se consulta el nombre del procesador, el numero de cores y el numero total de hilos del procesador |Cumple con la arquitectura y el conjunto de instrucciones de virtualizacion necesario. | El procesador soporta virtualizacion por hardware de manera nativa, se ha comprobado via consola con el comando [ lscpu ] |
 | RAM | | | | |
 | Almacenamiento | | | | |
 | Red | | | | |
