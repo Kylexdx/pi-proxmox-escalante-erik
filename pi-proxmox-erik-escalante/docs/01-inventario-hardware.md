@@ -13,7 +13,7 @@
 | CPU |Nombre: Intel(R) Pentium(R) CPU G4560 @ 3.50GHz 2 nucleos 4 hilos| Se consulta el nombre del procesador, el numero de cores y el numero total de hilos del procesador |Cumple con la arquitectura y el conjunto de instrucciones de virtualizacion necesario. | El procesador soporta virtualizacion por hardware de manera nativa, se ha comprobado via consola con el comando [ lscpu ] |
 | RAM | | | | |
 | Almacenamiento | | | | |
-| Red | | | | |
+| Red | Interfaz de red Ethernet disponible en el equipo de aula [gestionada por el hipervisor o por host en este caso] | Al menos una interfaz de red (NIC) física para la conectividad de red y gestión del nodo | Cuenta con conectividad de red operativa unicamente en el aula, con restricciones de firewall | Permite configurar el puente de red (vmbr0) para que el nodo Proxmox y sus máquinas virtuales tengan acceso a la red local y conectividad exterior. |
 | Plataforma | | | | |
 
 ## 1. Puedo instalar Proxmox en este equipo?
