@@ -25,7 +25,7 @@ commit dentro de su entrada de bitacora.
 -Acciones realizadas: 
   · Obtención de las especificaciones del hardware mediante [comandos](../evidencias)
   · Documentacion de las fuentes técnicas principales (Wiki de proxmox, de los sistemas operativos que virtualizaremos)
-  · Escritura de la viabilidad del proyecto y realización completa de la [Fase 1](../01-inventario-hardware.md)
+  · Escritura de la viabilidad del proyecto y realización completa de la [Fase 1](../docs/01-inventario-hardware.md)
 
 -Decisiones y motivos: 
   ·Se clasificó el sistema como "apto con condiciones" al comprobarse arquitectura de 64 bits y soporte de virtualización hardware, condicionándolo a la verificación del firmware.
