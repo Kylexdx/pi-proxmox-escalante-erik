@@ -62,8 +62,11 @@ Estimado: el reparto de arriba y los tamaños de ISOs, plantilla y copias.
 
 | Limitacion | Evidencia o estimacion | Consecuencia | Medida y limite que permanece |
 |---|---|---|---|
-| | | | |
-
+|CPU de 2 núcleos y 4 hilos, con carga simulánea | Ficha: i3-1115G4, 2C/4T. Estimación: 3 vCPU asignadas y 1 hilo libre para el host |Es el cuello de botella principal. Bajo carga sostenida las VMs compiten por los hilos y la CPU puede bajar de frecuencia por temperatura |2 vCPU para srv-aso, 1 para cli-linux y 1 hilo reservado al host. No se puede añadir más CPU a este equipo. |
+|RAM de 8 GiB, una parte soldada |Ficha: 8 GB DDR4 soldada; un slot libre según la respuesta de PcComponentes |Solo caben 2 VMs ligeras con margen de 2 GiB, y no hay holgura para una tercera |Evitar ZFS, que necesita más memoria (Proxmox calcula aproximadamente 1 GB por cada TB de almacenamiento usado). Ampliar por el slot libre si existe; los 8 GB soldados no se amplían. |
+|Un solo SSD sin redundancia | Ficha: 1 NVMe de 256 GB de consumo, más una ranura M.2 2280 libre| Un fallo del disco o un corte de energía puede dañar todo el entorno. Proxmox recomienda SSD con protección ante pérdida de energía para el almacenamiento de VM.| Copias de las VMs a un USB o disco externo, porque las copias en el mismo disco no protegen. La ranura libre permite añadir un segundo disco, pero un SSD de consumo sigue sin esa protección.|
+|Una sola NIC cableada |Ficha: Ethernet 1 Gbit + Wi-Fi AX201 ( vamos a usar la red de la clase ) | Gestión y tráfico de las VMs comparten el mismo puerto.| Bridge interno sin puerto físico para la red entre srv-aso y cli-linux. Un adaptador USB-C a Ethernet daría una segunda NIC. La salida exterior sigue dependiendo del firewall de clase si no usamos tailscale |
+|Es un portátil, no un servidor | Ficha: batería de 45 Wh y refrigeración de portátil| Se suspende por defecto, ademas, este portatíl no cuenta con pantalla| Debemos usar una pantalla externa para poder hacer toda la configuración inicial de proxmox, despues podremos acceder mediante navegador/SSH|
 ## 3. Que componentes son mas criticos en mi servidor y por que?
 
 Ordenar al menos tres componentes para este equipo y su servicio.
