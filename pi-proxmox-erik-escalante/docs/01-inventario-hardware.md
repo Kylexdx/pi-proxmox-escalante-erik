@@ -23,8 +23,9 @@ Responder por separado y justificar con datos y fuentes:
 
 - Puedo instalar y arrancar Proxmox: Sí, con condiciones. Los datos de la CPU obtenidos mediante lscpu confirman que el equipo cuenta con una arquitectura de 64 bits (x86_64) y el conjunto de instrucciones de virtualización por hardware Intel VT-x. La comprobación con systemd-detect-virt devolviendo none demuestra que el sistema operativo actual se ejecuta de forma nativa sobre el disco duro TOSHIBA de 465,8 GB, sin capas de virtualización previas que penalicen el rendimiento. Fuente: Requisitos oficiales de instalación de Proxmox VE
 
-- Puedo ejecutar el servidor ASO y el cliente del proyecto: PENDIENTE.
-- Condiciones o comprobaciones pendientes: PENDIENTE.
+- Puedo ejecutar el servidor ASO y el cliente del proyecto: Sí. El procesador Intel Pentium G4560 de 2 núcleos físicos y 4 hilos, junto con la capacidad de almacenamiento local disponible en el disco de más de 450 GB, cumple con los requerimientos necesarios para alojar tanto el nodo hipervisor como las máquinas virtuales o contenedores LXC invitados. Fuente: Documentación técnica y dimensionamiento de contenedores de Proxmox VE.
+
+- Condiciones o comprobaciones pendientes: Queda pendiente realizar una comprobación física en la BIOS/UEFI del equipo para confirmar que el soporte de virtualización por hardware (Intel VT-x) está habilitado correctamente y no presenta restricciones de firmware.
 
 ## 2. Que limitaciones tendre con este hardware?
 
