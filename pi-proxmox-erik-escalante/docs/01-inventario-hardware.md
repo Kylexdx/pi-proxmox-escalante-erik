@@ -2,15 +2,18 @@
 
 ## Contexto de la observacion
 
-- Fecha y sistema utilizado: PENDIENTE.
-- Modalidad, equipo anfitrion y VM VirtualBox si procede: PENDIENTE.
-- Version de Proxmox prevista: PENDIENTE.
+- Fecha y sistema utilizado: 13/10/2026 SO Lliurex.
+- Modalidad, equipo anfitrion y VM VirtualBox si procede: Equipo Anfitrion
+- Version de Proxmox prevista: 9.2-1 (VE)
 
 ## Inventario inicial
 
 | Area | Dato observado y evidencia | Especificacion y fuente | Limite o diferencia | Justificacion |
 |---|---|---|---|---|
-| CPU |ddddd| | | |
+| CPU |Nombre: Intel(R) Pentium(R) CPU G4560 @ 3.50GHz
+Tab2
+tab3| dddd
+tab4| | |
 | RAM | | | | |
 | Almacenamiento | | | | |
 | Red | | | | |
